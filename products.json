@@ -1,0 +1,42 @@
+[
+  {
+    "id": "big",
+    "name": "น้ำผึ้งขวดใหญ่",
+    "size": "big",
+    "sizeLabel": "ใหญ่",
+    "volume": "750 ml",
+    "price": 450,
+    "image": "images/big.jpeg",
+    "description": "ขวดขนาดใหญ่สำหรับครอบครัว เก็บไว้ใช้ได้นาน คุ้มค่าที่สุดต่อมิลลิลิตร"
+  },
+  {
+    "id": "mid",
+    "name": "น้ำผึ้งขวดกลาง",
+    "size": "mid",
+    "sizeLabel": "กลาง",
+    "volume": "450 ml",
+    "price": 250,
+    "image": "images/mid.jpeg",
+    "description": "ขนาดกำลังดีสำหรับใช้ในบ้านทุกวัน ทั้งชงเครื่องดื่มและปรุงอาหาร"
+  },
+  {
+    "id": "tube",
+    "name": "น้ำผึ้งแบบหลอด",
+    "size": "tube",
+    "sizeLabel": "หลอด",
+    "volume": "130 ml",
+    "price": 100,
+    "image": "images/tube.jpeg",
+    "description": "หลอดบีบพกพาง่าย ไม่เลอะมือ เหมาะกับการเดินทางและมื้อเช้าที่ต้องรีบ"
+  },
+  {
+    "id": "jam",
+    "name": "น้ำผึ้งแบบโหลแก้ว",
+    "size": "jam",
+    "sizeLabel": "โหลแก้ว",
+    "volume": "500 ml",
+    "price": 300,
+    "image": "images/jam.jpeg",
+    "description": "โหลแก้วใสเห็นเนื้อน้ำผึ้งชัดเจน ตั้งโชว์สวยและเหมาะเป็นของฝาก"
+  }
+]

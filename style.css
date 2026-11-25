@@ -1,0 +1,325 @@
+/* ==========================================================
+   น้ำผึ้งเดือนห้า — shared theme (premium / minimal)
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500&display=swap");
+
+:root {
+  /* palette: white-yellow base, green, deep green accent */
+  --paper: #fdfbf3;
+  --paper-soft: #f7f2de;
+  --ink: #1f2a21;
+  --ink-soft: #55604f;
+  --green: #7a8b5c;
+  --green-deep: #23392b;
+  --line: rgba(35, 57, 43, 0.28);
+  --line-soft: rgba(35, 57, 43, 0.14);
+
+  /* size accents: used only as small dots / short rules */
+  --honey: #d8b248;       /* regular yellow: mid, tube */
+  --honey-deep: #b5821a;  /* deep yellow: big, jam */
+
+  /* type */
+  --font-serif: "Noto Serif Thai", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+
+  /* spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 7rem;
+
+  --maxw: 1120px;
+  --readw: 62ch;
+}
+
+/* ---------- base ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--green-deep); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 0.3em; }
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--green-deep);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: 0.02em; }
+h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); letter-spacing: 0.02em; }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 var(--space-3); max-width: var(--readw); }
+
+:focus-visible {
+  outline: 1px solid var(--green-deep);
+  outline-offset: 4px;
+}
+
+/* ---------- layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section { padding: var(--space-6) 0; }
+.section--soft { background: var(--paper-soft); }
+
+.section-head {
+  margin-bottom: var(--space-5);
+  text-align: center;
+}
+.section-head p { margin-left: auto; margin-right: auto; color: var(--ink-soft); }
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+  margin: 0;
+}
+
+/* ---------- header / nav ---------- */
+.site-header {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--paper);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--green-deep);
+}
+.brand:hover { text-decoration: none; }
+
+.site-nav {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+.site-nav a { color: var(--ink-soft); }
+.site-nav a:hover { color: var(--green-deep); text-decoration: none; }
+
+/* ---------- hero ---------- */
+.hero {
+  padding: var(--space-6) 0 var(--space-5);
+  text-align: center;
+}
+.hero p {
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+.hero .btn { margin-top: var(--space-3); }
+
+/* ---------- buttons: thin dark line, no loud fills ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2.25rem;
+  background: transparent;
+  color: var(--green-deep);
+  border: 1px solid var(--green-deep);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn:hover {
+  background: var(--green-deep);
+  color: var(--paper);
+  text-decoration: none;
+}
+.btn--solid { background: var(--green-deep); color: var(--paper); }
+.btn--solid:hover { background: transparent; color: var(--green-deep); }
+.btn--block { display: block; width: 100%; text-align: center; }
+
+/* ---------- size accent: small dot only ----------
+   usage: <span class="size-dot" data-size="big"></span>
+   or put data-size on a .product-card to tint its dot + short rule */
+[data-size="big"]  { --size-color: var(--honey-deep); }
+[data-size="mid"]  { --size-color: var(--honey); }
+[data-size="tube"] { --size-color: var(--honey); }
+[data-size="jam"]  { --size-color: var(--honey-deep); }
+
+.size-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--size-color, var(--honey));
+  vertical-align: middle;
+}
+
+/* ---------- product grid + cards ---------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;           /* no filled card backgrounds */
+  border: 1px solid var(--line-soft);
+  padding: var(--space-3);
+  transition: border-color 0.25s ease;
+}
+.product-card:hover { border-color: var(--line); }
+
+.product-image {
+  aspect-ratio: 1 / 1;
+  margin-bottom: var(--space-3);
+  background: var(--paper-soft);
+  overflow: hidden;
+}
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.product-name {
+  margin-bottom: var(--space-1);
+  font-size: 1.1rem;
+}
+/* short accent rule under the title, tinted by size */
+.product-name::after {
+  content: "";
+  display: block;
+  width: 1.75rem;
+  height: 2px;
+  margin-top: var(--space-1);
+  background: var(--size-color, var(--honey));
+}
+
+.product-volume {
+  margin-bottom: var(--space-1);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+.product-desc {
+  flex: 1;
+  margin-bottom: var(--space-3);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+.product-price {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--green-deep);
+}
+.product-price small {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- forms (order section) ---------- */
+.form-field { margin-bottom: var(--space-3); }
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  transition: border-color 0.2s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--green-deep);
+}
+textarea { min-height: 7rem; resize: vertical; }
+
+.form-status {
+  margin-top: var(--space-2);
+  font-size: 0.95rem;
+  color: var(--green-deep);
+}
+.form-status--error { color: #8a3b2e; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --space-5: 3rem;
+    --space-6: 4.5rem;
+  }
+  .container { padding: 0 var(--space-2); }
+  .site-header .container { flex-direction: column; gap: var(--space-2); }
+  .site-nav { gap: var(--space-3); }
+  .products-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .hero { padding-top: var(--space-5); }
+  .btn { padding: 0.75rem 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
